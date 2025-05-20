@@ -1,0 +1,7 @@
+{
+  "name": "hew-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
