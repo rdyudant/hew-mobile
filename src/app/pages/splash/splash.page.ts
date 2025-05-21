@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { AnimationController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +13,24 @@ import { Router } from '@angular/router';
 })
 export class SplashPage implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(
+  private animationCtrl: AnimationController,
+  private router: Router
+  ) {}
 
   ngOnInit() {
     setTimeout(() => {
-      this.router.navigateByUrl('/login', { replaceUrl: true });
-    }, 2000); // 2 detik
+      const leavingAnimation = this.animationCtrl
+        .create()
+        .addElement(document.querySelector('ion-content')!)
+        .duration(2000)
+        .easing('ease-out')
+        .fromTo('opacity', '1', '0');
+
+      leavingAnimation.play().then(() => {
+        this.router.navigateByUrl('/login');
+      });
+    }, 2000);
   }
+
 }

@@ -1,23 +1,10 @@
-<ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
-    </ion-card-header>
+<div class="login-container">
+  <img src="/assets/img/HEW.png" alt="Logo" class="logo" />
+  <h1>Selamat Datang</h1>
+  <p>Masuk untuk melanjutkan.</p>
 
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Username</ion-label>
-        <ion-input [(ngModel)]="username" type="text"></ion-input>
-      </ion-item>
+  <input [(ngModel)]="nik" type="number" placeholder="Nomor Induk Karyawan" />
+  <input [(ngModel)]="password" type="password" placeholder="Password" />
 
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input [(ngModel)]="password" type="password"></ion-input>
-      </ion-item>
-
-      <ion-button expand="block" class="ion-margin-top" (click)="login()">
-        Masuk
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+  <button (click)="onLogin()">Masuk</button>
+</div>

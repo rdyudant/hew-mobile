@@ -35,3 +35,18 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+// Using Google Font
+body, ion-content, ion-title, ion-label, ion-button, ion-text, ion-input, ion-textarea, ion-item {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+// Using Same Background
+body {
+  background: url('assets/img/background.JPG') no-repeat center center fixed;
+  background-size: cover;
+}
+ion-content {
+  --background: transparent;
+  background: transparent !important;
+}

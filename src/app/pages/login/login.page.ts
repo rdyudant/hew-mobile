@@ -12,30 +12,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  username = '';
+  nik = '';
   password = '';
 
-  constructor(private toastCtrl: ToastController, private router: Router) {}
+  constructor(
+    private toastController: ToastController,
+    private router: Router
+  ) {}
 
-  async login() {
-    if (!this.username || !this.password) {
-      const toast = await this.toastCtrl.create({
-        message: 'Username dan Password wajib diisi!',
-        duration: 2000,
+  async onLogin() {
+    if (this.nik !== '123' || this.password !== '123') {
+      const toast = await this.toastController.create({
+        message: '[LOGIN GAGAL] Nomor induk atau password salah!',
+        duration: 3000,
+        position: 'top',
         color: 'danger',
       });
-      toast.present();
-      return;
+      await toast.present();
+    } else {
+      // Navigasi ke halaman dashboard
+      this.router.navigateByUrl('/dashboard', { replaceUrl: true });
     }
-
-    // Simulasi login berhasil
-    const toast = await this.toastCtrl.create({
-      message: 'Login berhasil!',
-      duration: 2000,
-      color: 'success',
-    });
-    toast.present();
-
-    this.router.navigateByUrl('/dashboard', { replaceUrl: true });
   }
 }
